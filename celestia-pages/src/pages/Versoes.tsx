@@ -5,4 +5,6 @@ export default function Versoes() {
     useEffect(() => {
         document.title = `Versões${CONFIG.APP_NAME}`
     }, [])
+
+    return (<></>)
 }

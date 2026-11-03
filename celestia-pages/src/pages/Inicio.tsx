@@ -6,5 +6,5 @@ export default function Inicio() {
         document.title = `Início${CONFIG.APP_NAME}`
     }, [])
 
-    
+    return (<></>)
 }

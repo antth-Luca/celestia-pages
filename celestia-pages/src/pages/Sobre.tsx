@@ -5,4 +5,6 @@ export default function Sobre() {
     useEffect(() => {
         document.title = `Sobre o jogo${CONFIG.APP_NAME}`
     }, [])
+
+    return (<></>)
 }
