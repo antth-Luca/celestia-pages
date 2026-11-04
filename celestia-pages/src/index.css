@@ -20,9 +20,9 @@
     --color-contrast: #fc2bff;
 
 
-    --glass-blur: blur(8px);
-    --glass-bg: rgba(15, 18, 24, .2);
-    --glass-border: rgba(255, 255, 255, .2);
+    --glass-blur: blur(4px);
+    --glass-bg: rgba(15, 18, 24, .1);
+    --glass-border: rgba(255, 255, 255, .3);
     --glass-shadow:
         0 8px 32px rgba(0, 0, 0, .55),
         inset -2px -2px 0 rgba(255, 255, 255, 0.1);
@@ -30,7 +30,13 @@
         135deg,
         rgba(255, 255, 255, .6) 0%,
         rgba(255, 255, 255, 0) 50%,
-        rgba(255, 255, 255, .05) 100%
+        rgba(255, 255, 255, .15) 100%
+    );
+    --reflection-hover: linear-gradient(
+        135deg,
+        rgba(255, 255, 255, .8) 0%,
+        rgba(255, 255, 255, 0) 50%,
+        rgba(255, 255, 255, .3) 100%
     );
 }
 
@@ -43,35 +49,38 @@ body {
 }
 
 /* Background */
-.blur-bg {
+.star-bg {
     position: fixed;
-    top: 0;
-    left: 0;
+    inset: 0;
     width: 100%;
     height: 100%;
-    z-index: -1;
+    z-index: 0;
     overflow: hidden;
-
-    > div {
-        filter: blur(52px);
-    }
+    pointer-events: none;
 }
 
-.blob {
+.star {
     position: absolute;
+    top: -10px;
+    height: 3px;
     border-radius: 50%;
-    opacity: 0.25;
-    animation: blob-float 8s infinite alternate;
-    width: 300px;
-    height: 300px;
-    background: var(--color-brand-300);
-    top: calc(50% - 150px);
-    right: calc(50% - 150px);
+    background: #fff;
+    box-shadow:
+        0 0 5px rgba(255, 255, 255, 1),
+        0 0 12px var(--color-brand-300),
+        0 0 20px var(--color-brand-400);
+
+    animation: star-fall linear infinite;
 }
 
-@keyframes blob-float {
-    from { transform: translate(0, 0) scale(1); }
-    to { transform: translate(120px, 120px) scale(1.1); }
+@keyframes star-fall {
+    from {
+        transform: translate(0, -10px);
+    }
+
+    to {
+        transform: translate(100vh, 100vh);
+    }
 }
 
 /* Glassmorphism */
@@ -106,7 +115,10 @@ body {
 
     &:hover {
         transform: translateY(-5px);
-        border-color: rgba(255, 255, 255, .3);
+
+        &::before {
+            background: var(--reflection-hover);
+        }
     }
 }
 
@@ -114,6 +126,12 @@ body {
     @apply glass;
     border-radius: 20px;
     padding: 1.5rem;
+}
+
+/* Other utilities */
+@utility pixelated {
+    image-rendering: pixelated;
+    image-rendering: crisp-edges;
 }
 
 @utility text-gradient {

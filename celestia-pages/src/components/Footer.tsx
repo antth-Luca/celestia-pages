@@ -13,7 +13,7 @@ export default function Footer() {
                 <span className="text-gradient">Celestia</span>
                 </p>
                 <p className="text-sm text-space-tx/50 mt-1">
-                    Sobrevivendo às estrelas.
+                    Sobrevivendo às estrelas
                 </p>
             </div>
 

@@ -13,22 +13,15 @@ export default function Inicio() {
         <section className="relative pt-32 pb-20 px-6 max-w-6xl mx-auto overflow-hidden">
             <div className="flex flex-col-reverse md:flex-row items-center justify-between gap-12 mb-16">
                 
-                <div className="w-full md:w-2/3 text-center md:text-left">
-                    <h1 className="text-4xl md:text-6xl font-bold tracking-tight leading-tight mb-6 text-space-tx">
-                        Olá, <br />
-                        Eu sou <span className="text-gradient">Luca Anthony</span>
-                    </h1>
-                    <p className="text-lg text-space-tx/80 max-w-lg mx-auto md:mx-0">
-                        Com propósito e humanidade, crio sistemas, conto histórias, movo ideias!
-                    </p>
-                </div>
-
-                <div className="w-full md:w-1/3 flex justify-center">
-                    <img 
-                        src="/perfil.png" 
-                        alt="Perfil Luca" 
-                        className="rounded-full w-48 h-48 md:w-60 md:h-60 object-cover border-2 border-brand-500/30 shadow-xl" 
+                <div className="w-full md:w-2/3 text-right">
+                    <img
+                        src="logo.png"
+                        alt="Logo de Celestia"
+                        className="pixelated w-full md:w-2/3"
                     />
+                    <p className="text-lg text-space-tx/80 max-w-lg mx-auto md:mx-0">
+                        Sobrevivendo às estrelas
+                    </p>
                 </div>
 
             </div>
