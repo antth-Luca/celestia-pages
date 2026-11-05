@@ -1,0 +1,59 @@
+{
+    "pre": {
+        "fundacoes": {
+            "description": "Fundações: Sistema de eventos, sistema de registro de conteúdos, início de ResMaid (módulo responsável por obter e tratar assets e data) e mundo base (com geração procedural e renderização por chunks).",
+            "status": 0
+        },
+        "combate": {
+            "description": "Combate: Sistema de atributos para entidades (para o Jogador, com UI), inimigo Zumbi e Jogador que se move e sofre dano (com empurrão)(o Jogador especificamente, armazena dano para futura regeneração).",
+            "status": 0
+        },
+        "inventario": {
+            "description": "Inventário: Classes de Item e ItemStack, sistema de ItemComponents, inventário das entidades (para Jogadpr, com UI), entidade de item dropado no mundo, coleta e uso de item pelo jogador.",
+            "status": 0
+        },
+        "sobrevivencia": {
+            "description": "Sobrevivência: Sistema de fome (barra de saciedade, itens comestíveis e desconto da regeneração futura) e sistema de ressurreição do jogador.",
+            "status": 0
+        }
+    },
+    "alpha": {
+        "estruturas": {
+            "description": "Estruturas: Sistema de loot table, sistema de receitas, ItemComponent que define ferramenta, estruturas base, natural e de construção.",
+            "status": 0
+        },
+        "descanso": {
+            "description": "Descanso: Sistema de tempo (passagem de tick global e a HUD do Jogador escurece de acordo), estrutura Cama (dormir nela passa a noite) e regeneração passiva de vida ao acordar.",
+            "status": 0
+        },
+        "fabricacao": {
+            "description": "Fabricação: Estruturas que abrem UI, buscam receita e criam itens. Inventário de dados e estrutura que analisa o tempo atual para gerar dado.",
+            "status": 0
+        },
+        "combate2": {
+            "description": "Combate 2: Movimento de rolagem do Jogador, sistema de efeitos para entidades, sistema de encantamentos, tipos de slot para relíquias (colar, mãos, cinto, etc.), ItemComponent que define munição, tipo de slot para definição, entidade base para projéteis e projétil Flecha.",
+            "status": 0
+        },
+        "natureza": {
+            "description": "Natureza: Primeiro animal Galinha, sistema de reprodução (estrutura Estábulo e item Laço que movimenta os animais e coloca no Estábulo), sitema de plantação (ItemComponent para adubos e outro para sementes e estrutura Terra de Plantio).",
+            "status": 0
+        },
+        "historia": {
+            "description": "História: Primeiro chefe e sistema de gatilhos (servirá para conquistas, coleção de itens, eventos mundiais, desbloqueio de receitas. Observa derrota de chefes, coletar item, visitar bioma.",
+            "status": 0
+        }
+    },
+    "beta": {
+        "mundo": {
+            "description": "Mundo: Consistência de mundo",
+            "status": 0
+        }
+    },
+    "ato1": { },
+    "horizontes": { },
+    "combate": { },
+    "magia": { },
+    "cozinha": { },
+    "festa": { },
+    "ato2": { }
+}
