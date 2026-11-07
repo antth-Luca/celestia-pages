@@ -1,11 +1,46 @@
-import { useEffect } from "react"
+import { useEffect, useState } from "react"
 import { CONFIG } from "../config"
 import { ArrowRight } from "lucide-react"
+import type VersionData from "../data/VersionData"
+import { getStatusLabel } from "../data/VersionData";
 
 export default function Inicio() {
+    const [versions, setVersions] = useState<VersionData[]>([]);
+    const [loading, setLoading] = useState<boolean>(true);
+
     useEffect(() => {
         document.title = `Início${CONFIG.APP_NAME}`
     }, [])
+
+    useEffect(() => {
+        fetch("/data/versions.json")
+            .then((res) => {
+                if (!res.ok) {
+                    throw new Error("Erro ao carregar JSON de versões.")
+                }
+                return res.json()
+            })
+            .then((data: VersionData[]) => {
+                setVersions(data)
+                setLoading(false)
+            })
+            .catch((e) => {
+                console.error("Falha na busca:", e)
+                setLoading(false)
+            })
+    }, [])
+
+    if (loading) {
+        return (<>
+            <section className="relative pt-32 pb-20 px-6 max-w-6xl mx-auto overflow-hidden">
+                <div className="mb-12 text-center md:text-left">
+                    <h2 className="text-3xl md:text-5xl font-bold tracking-tight text-space-tx">
+                        Carregando <span className="text-gradient">versões</span>...
+                    </h2>
+                </div>
+            </section>
+        </>)
+    }
 
     return (<>
         {/* Hero Section */}
@@ -43,146 +78,28 @@ export default function Inicio() {
         <section id="versoes" className="relative pb-20 px-6 max-w-6xl mx-auto">
             <h4 className="text-xl font-bold text-brand-500 mb-4">Muito conteúdo planejado</h4>
             <div className="relative border-l-2 border-brand-800/40 ml-4 md:ml-6 flex flex-col gap-8">
-            
-                {/* Item: Pré-alpha */}
-                <div className="relative pl-8 md:pl-10">
-                    <div className="absolute -left-[17px] top-1 bg-brand-600 text-white text-xs font-bold w-8 h-8 rounded-full flex items-center justify-center border-4 border-space-bg shadow-lg">
-                        prealpha
-                    </div>
-            
-                    {/* Card de Informações */}
-                    <div className="glass-card p-6 flex flex-col gap-1">
-                        <span className="text-xs font-semibold text-brand-400 uppercase tracking-wider">Desenvolvendo ⏳</span>
-                        <h5 className="text-lg font-bold text-space-tx">Pré-alpha</h5>
-                        <span className="text-sm text-brand-300 font-medium">03/11/2026 - ??</span>
-                    </div>
-                </div>
 
-                {/* Item: Alpha */}
-                <div className="relative pl-8 md:pl-10">
-                    <div className="absolute -left-[17px] top-1 bg-brand-600 text-white text-xs font-bold w-8 h-8 rounded-full flex items-center justify-center border-4 border-space-bg shadow-lg">
-                        alpha
-                    </div>
-            
-                    {/* Card de Informações */}
-                    <div className="glass-card p-6 flex flex-col gap-1">
-                        <span className="text-xs font-semibold text-brand-400 uppercase tracking-wider">Planejada 📅</span>
-                        <h5 className="text-lg font-bold text-space-tx">Alpha</h5>
-                        <span className="text-sm text-brand-300 font-medium">?? - ??</span>
-                    </div>
-                </div>
-
-                {/* Item: Beta */}
-                <div className="relative pl-8 md:pl-10">
-                    <div className="absolute -left-[17px] top-1 bg-brand-600 text-white text-xs font-bold w-8 h-8 rounded-full flex items-center justify-center border-4 border-space-bg shadow-lg">
-                        beta
-                    </div>
-            
-                    {/* Card de Informações */}
-                    <div className="glass-card p-6 flex flex-col gap-1">
-                        <span className="text-xs font-semibold text-brand-400 uppercase tracking-wider">Planejada 📅</span>
-                        <h5 className="text-lg font-bold text-space-tx">Beta</h5>
-                        <span className="text-sm text-brand-300 font-medium">?? - ??</span>
-                    </div>
-                </div>
-
-                {/* Item: Ato 1 */}
-                <div className="relative pl-8 md:pl-10">
-                    <div className="absolute -left-[17px] top-1 bg-brand-600 text-white text-xs font-bold w-8 h-8 rounded-full flex items-center justify-center border-4 border-space-bg shadow-lg">
-                        v27.1.1
-                    </div>
-            
-                    {/* Card de Informações */}
-                    <div className="glass-card p-6 flex flex-col gap-1">
-                        <span className="text-xs font-semibold text-brand-400 uppercase tracking-wider">Planejada 📅</span>
-                        <h5 className="text-lg font-bold text-space-tx">Ato 1</h5>
-                        <span className="text-sm text-brand-300 font-medium">?? - ??</span>
-                    </div>
-                </div>
-
-                {/* Item: Novos horizontes */}
-                <div className="relative pl-8 md:pl-10">
-                    <div className="absolute -left-[17px] top-1 bg-brand-600 text-white text-xs font-bold w-8 h-8 rounded-full flex items-center justify-center border-4 border-space-bg shadow-lg">
-                        v27.1.2
-                    </div>
-            
-                    {/* Card de Informações */}
-                    <div className="glass-card p-6 flex flex-col gap-1">
-                        <span className="text-xs font-semibold text-brand-400 uppercase tracking-wider">Planejada 📅</span>
-                        <h5 className="text-lg font-bold text-space-tx">Novos horizontes</h5>
-                        <span className="text-sm text-brand-300 font-medium">?? - ??</span>
-                    </div>
-                </div>
-
-                {/* Item: Combate */}
-                <div className="relative pl-8 md:pl-10">
-                    <div className="absolute -left-[17px] top-1 bg-brand-600 text-white text-xs font-bold w-8 h-8 rounded-full flex items-center justify-center border-4 border-space-bg shadow-lg">
-                        v27.1.3
-                    </div>
-            
-                    {/* Card de Informações */}
-                    <div className="glass-card p-6 flex flex-col gap-1">
-                        <span className="text-xs font-semibold text-brand-400 uppercase tracking-wider">Planejada 📅</span>
-                        <h5 className="text-lg font-bold text-space-tx">Vamos ao combate!</h5>
-                        <span className="text-sm text-brand-300 font-medium">?? - ??</span>
-                    </div>
-                </div>
-
-                {/* Item: Magia */}
-                <div className="relative pl-8 md:pl-10">
-                    <div className="absolute -left-[17px] top-1 bg-brand-600 text-white text-xs font-bold w-8 h-8 rounded-full flex items-center justify-center border-4 border-space-bg shadow-lg">
-                        v27.1.4
-                    </div>
-            
-                    {/* Card de Informações */}
-                    <div className="glass-card p-6 flex flex-col gap-1">
-                        <span className="text-xs font-semibold text-brand-400 uppercase tracking-wider">Planejada 📅</span>
-                        <h5 className="text-lg font-bold text-space-tx">MagEra</h5>
-                        <span className="text-sm text-brand-300 font-medium">?? - ??</span>
-                    </div>
-                </div>
-
-                {/* Item: Comidas */}
-                <div className="relative pl-8 md:pl-10">
-                    <div className="absolute -left-[17px] top-1 bg-brand-600 text-white text-xs font-bold w-8 h-8 rounded-full flex items-center justify-center border-4 border-space-bg shadow-lg">
-                        v27.1.5
-                    </div>
-            
-                    {/* Card de Informações */}
-                    <div className="glass-card p-6 flex flex-col gap-1">
-                        <span className="text-xs font-semibold text-brand-400 uppercase tracking-wider">Planejada 📅</span>
-                        <h5 className="text-lg font-bold text-space-tx">Cozinheiros a postos!</h5>
-                        <span className="text-sm text-brand-300 font-medium">?? - ??</span>
-                    </div>
-                </div>
-
-                {/* Item: Festa */}
-                <div className="relative pl-8 md:pl-10">
-                    <div className="absolute -left-[17px] top-1 bg-brand-600 text-white text-xs font-bold w-8 h-8 rounded-full flex items-center justify-center border-4 border-space-bg shadow-lg">
-                        v27.1.6
-                    </div>
-            
-                    {/* Card de Informações */}
-                    <div className="glass-card p-6 flex flex-col gap-1">
-                        <span className="text-xs font-semibold text-brand-400 uppercase tracking-wider">Planejada 📅</span>
-                        <h5 className="text-lg font-bold text-space-tx">Festejos</h5>
-                        <span className="text-sm text-brand-300 font-medium">?? - ??</span>
-                    </div>
-                </div>
-
-                {/* Item: Ato 2 */}
-                <div className="relative pl-8 md:pl-10">
-                    <div className="absolute -left-[17px] top-1 bg-brand-600 text-white text-xs font-bold w-8 h-8 rounded-full flex items-center justify-center border-4 border-space-bg shadow-lg">
-                        v27.2.1
-                    </div>
-            
-                    {/* Card de Informações */}
-                    <div className="glass-card p-6 flex flex-col gap-1">
-                        <span className="text-xs font-semibold text-brand-400 uppercase tracking-wider">Planejando... 📅</span>
-                        <h5 className="text-lg font-bold text-space-tx">Ato 2</h5>
-                        <span className="text-sm text-brand-300 font-medium">?? - ??</span>
-                    </div>
-                </div>
+                {/* Itens via JSON */}
+                {
+                    Object.values(versions).map((i) => (
+                        <div key={i.name} className="relative pl-8 md:pl-10">
+                            <div className="absolute -left-[17px] top-1 bg-brand-600 text-white text-xs font-bold w-8 h-8 rounded-full flex items-center justify-center border-4 border-space-bg shadow-lg">
+                                {i.name}
+                            </div>
+                    
+                            {/* Card de Informações */}
+                            <div className="glass-card p-6 flex flex-col gap-1">
+                                <span className="text-xs font-semibold text-brand-400 uppercase tracking-wider">
+                                    {getStatusLabel(i.status)}
+                                </span>
+                                <h5 className="text-lg font-bold text-space-tx">{i.title}</h5>
+                                <span className="text-sm text-brand-300 font-medium">
+                                    {i.period ? i.period : "?? - ??"}
+                                </span>
+                            </div>
+                        </div>
+                    ))
+                }
 
             </div>
         </section>

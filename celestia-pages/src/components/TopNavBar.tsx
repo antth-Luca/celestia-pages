@@ -31,7 +31,7 @@ export const TopNavBar: React.FC<TNBProps> = ({ homeURL, logoSrc, title, links }
                 <div className="hidden md:flex items-center gap-8 px-2 md:px-3 text-sm font-medium text-slate-300">
                     {
                         links.map(({ onClick, label }) => (
-                            <a onClick={onClick} className="hover:text-brand-600 transition-colors">{label}</a>
+                            <a key={label.toLowerCase()} onClick={onClick} className="hover:text-brand-600 transition-colors">{label}</a>
                         ))
                     }
                 </div>
@@ -59,6 +59,7 @@ export const TopNavBar: React.FC<TNBProps> = ({ homeURL, logoSrc, title, links }
                             {
                                 links.map(({ onClick, label }) => (
                                     <a
+                                        key={label.toLowerCase()}
                                         onClick={() => {
                                             setIsMenuOpen(false)
                                             onClick()
