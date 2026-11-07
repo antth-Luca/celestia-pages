@@ -1,0 +1,53 @@
+{
+    "pre": {
+        "name": "prealpha",
+        "title": "Pré-alpha",
+        "status": 2,
+        "period": "03/11/2026 - ??"
+    },
+    "alpha": {
+        "name": "alpha",
+        "title": "Alpha",
+        "status": 1
+    },
+    "beta": {
+        "name": "beta",
+        "title": "Beta",
+        "status": 1
+    },
+    "ato1": {
+        "name": "v27.1.1",
+        "title": "Ato 1",
+        "status": 1
+    },
+    "horizontes": {
+        "name": "v27.1.2",
+        "title": "Novos horizontes",
+        "status": 1
+    },
+    "combate": {
+        "name": "v27.1.3",
+        "title": "Vamos ao combate!",
+        "status": 1
+    },
+    "magia": {
+        "name": "v27.1.4",
+        "title": "MagEra",
+        "status": 1
+    },
+    "cozinha": {
+        "name": "v27.1.5",
+        "title": "Cozinheiros a postos!",
+        "status": 1
+    },
+    "festa": {
+        "name": "v27.1.6",
+        "title": "Festejos",
+        "status": 1
+    },
+    "ato2": {
+        "name": "v27.2.1",
+        "title": "Ato 2",
+        "status": 0
+    }
+}
