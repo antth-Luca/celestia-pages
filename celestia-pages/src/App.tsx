@@ -19,7 +19,7 @@ export default function App() {
         <ContentContainer content={<>
             <TopNavBar
                 homeURL="#"
-                logoSrc="/icon.png"
+                logoSrc="/celestia-pages/icon.png"
                 title="Celestia"
                 links={links}
             />

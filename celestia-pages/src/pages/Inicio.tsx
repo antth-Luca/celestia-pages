@@ -13,7 +13,7 @@ export default function Inicio() {
     }, [])
 
     useEffect(() => {
-        fetch("/data/versions.json")
+        fetch("data/versions.json")
             .then((res) => {
                 if (!res.ok) {
                     throw new Error("Erro ao carregar JSON de versões.")
