@@ -150,6 +150,24 @@
             "status": 0
         }
     },
-    "festa": { },
-    "ato2": { }
+    "festa": {
+        "pets": {
+            "description": "Pets: Adição de animais de estimação mágicos.",
+            "status": 0
+        },
+        "decor": {
+            "description": "Decorações: Adição de 2 novas estruturas customizáveis por skin.",
+            "status": 0
+        },
+        "passe": {
+            "description": "Passe estelar: Adição de passe que concede muitas recompensas.",
+            "status": 0
+        }
+    },
+    "ato2": {
+        "planejando": {
+            "description": "Ainda em planejamento...",
+            "status": 0
+        }
+    }
 }

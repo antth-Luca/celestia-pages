@@ -1,7 +1,6 @@
 @import "tailwindcss";
 
 @theme {
-    --color-space-bg: #080210;
     --color-space-tx: #F1F5F9;
 
     --color-brand-50:  #f5f0ff;
@@ -20,9 +19,9 @@
     --color-contrast: #fc2bff;
 
 
-    --glass-blur: blur(4px);
-    --glass-bg: rgba(15, 18, 24, .1);
-    --glass-border: rgba(255, 255, 255, .3);
+    --glass-blur: blur(8px);
+    --glass-bg: rgba(15, 18, 24, .05);
+    --glass-border: rgba(255, 255, 255, .1);
     --glass-shadow:
         0 8px 32px rgba(0, 0, 0, .55),
         inset -2px -2px 0 rgba(255, 255, 255, 0.1);
@@ -43,9 +42,16 @@
 body {
     @apply transition-colors duration-700 ease-in-out antialiased overflow-x-hidden;
     font-family: 'Outfit', 'Inter', system-ui, -apple-system, sans-serif;
-    background-color: var(--color-space-bg);
     color: var(--color-space-tx);
     min-height: 100vh;
+
+    background-image: url("/celestia-pages/bg.png");
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+    background-attachment: fixed;
+
+    @apply pixelated;
 }
 
 /* Background */
@@ -61,8 +67,6 @@ body {
 
 .star {
     position: absolute;
-    top: -10px;
-    height: 3px;
     border-radius: 50%;
     background: #fff;
     box-shadow:
@@ -70,16 +74,16 @@ body {
         0 0 12px var(--color-brand-300),
         0 0 20px var(--color-brand-400);
 
-    animation: star-fall linear infinite;
+    animation: star-shine ease-in-out infinite;
 }
 
-@keyframes star-fall {
-    from {
-        transform: translate(0, -10px);
+@keyframes star-shine {
+    0%, 100% {
+        opacity: 0.2;
     }
 
-    to {
-        transform: translate(100vh, 100vh);
+    50% {
+        opacity: 1.0;
     }
 }
 

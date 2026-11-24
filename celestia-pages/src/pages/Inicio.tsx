@@ -1,46 +1,17 @@
-import { useEffect, useState } from "react"
+import { useEffect } from "react"
 import { CONFIG } from "../config"
 import { ArrowRight } from "lucide-react"
+import { getStatusLabel } from "../data/VersionData"
 import type VersionData from "../data/VersionData"
-import { getStatusLabel } from "../data/VersionData";
 
-export default function Inicio() {
-    const [versions, setVersions] = useState<VersionData[]>([]);
-    const [loading, setLoading] = useState<boolean>(true);
+interface InicioProps {
+    versions: VersionData[];
+}
 
+export const Inicio: React.FC<InicioProps> = ({ versions }) => {
     useEffect(() => {
         document.title = `Início${CONFIG.APP_NAME}`
     }, [])
-
-    useEffect(() => {
-        fetch("data/versions.json")
-            .then((res) => {
-                if (!res.ok) {
-                    throw new Error("Erro ao carregar JSON de versões.")
-                }
-                return res.json()
-            })
-            .then((data: VersionData[]) => {
-                setVersions(data)
-                setLoading(false)
-            })
-            .catch((e) => {
-                console.error("Falha na busca:", e)
-                setLoading(false)
-            })
-    }, [])
-
-    if (loading) {
-        return (<>
-            <section className="relative pt-32 pb-20 px-6 max-w-6xl mx-auto overflow-hidden">
-                <div className="mb-12 text-center md:text-left">
-                    <h2 className="text-3xl md:text-5xl font-bold tracking-tight text-space-tx">
-                        Carregando <span className="text-gradient">versões</span>...
-                    </h2>
-                </div>
-            </section>
-        </>)
-    }
 
     return (<>
         {/* About Section */}
