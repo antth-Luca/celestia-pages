@@ -3,6 +3,7 @@ import { CONFIG } from "../config"
 import type { VersionsData } from "../data/VersionData";
 import type { FeaturesData } from "../data/FeatureData";
 import { getStatusLabel } from "../data/VersionData";
+import { Square, SquareCheckBig } from "lucide-react";
 
 interface VersoesProps {
     versions: VersionsData;
@@ -16,7 +17,7 @@ export const Versoes: React.FC<VersoesProps> = ({ versions, features }) => {
     
     const totalFeatures = selectedFeatures.length;
     const completedFeatures = selectedFeatures.filter(
-        ([, feature]) => feature.submit == true
+        ([, feature]) => feature.submit
     ).length;
     const vsProgress = totalFeatures > 0
         ? Math.round((completedFeatures / totalFeatures) * 100)
@@ -68,7 +69,64 @@ export const Versoes: React.FC<VersoesProps> = ({ versions, features }) => {
 
                 {/* JSON content: Features */}
                 {
-                    
+                    <div className="glass-card p-6 mt-6 flex flex-col gap-6">
+                        <div className="flex flex-col gap-2">
+
+                            <div className="flex items-center justify-between">
+                                <h4 className="font-semibold text-space-tx">
+                                    Progresso da versão {selectedVs.title}
+                                </h4>
+                                <span className="text-brand-400 font-bold">
+                                    {vsProgress}%
+                                </span>
+                            </div>
+
+                            <div className="w-full h-3 bg-brand-900/40 rounded-full overflow-hidden">
+                                <div
+                                    className="h-full bg-brand-500 rounded-full transition-all duration-500"
+                                    style={{ width: `${vsProgress}%` }}
+                                />
+                            </div>
+
+                            <span className="text-xs text-space-tx/50">
+                                {completedFeatures} de {totalFeatures} recursos concluídos
+                            </span>
+
+                        </div>
+
+                        <div className="flex flex-col gap-4">
+
+                            <h4 className="text-xl font-bold text-space-tx">
+                                Recursos
+                            </h4>
+
+                            {selectedFeatures.length === 0 ? (
+                                <p className="text-space-tx/60">
+                                    Nenhum recurso cadastrado para esta versão.
+                                </p>
+                            ) : (
+                                <div className="flex flex-col gap-3">
+                                    {selectedFeatures.map(([k, feature]) => (
+                                        <div
+                                            key={k}
+                                            className="border border-brand-800/30 rounded-lg p-4 flex gap-2"
+                                        >
+                                            {feature.submit ? (
+                                                <SquareCheckBig className="w-12 shrink-0 text-brand-400" />
+                                            ) : (
+                                                <Square className="w-12 shrink-0" />
+                                            )}
+
+                                            <p className="text-sm text-space-tx/70">
+                                                {feature.desc}
+                                            </p>
+                                        </div>
+                                    ))}
+                                </div>
+                            )}
+
+                        </div>
+                    </div>
                 }
 
             </div>

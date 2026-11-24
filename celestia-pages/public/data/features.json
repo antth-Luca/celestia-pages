@@ -1,173 +1,173 @@
 {
     "pre": {
         "fundacoes": {
-            "description": "Fundações: Sistema de eventos, sistema de registro de conteúdos, início de ResMaid (módulo responsável por obter e tratar assets e data) e mundo base (com geração procedural e renderização por chunks).",
-            "status": false
+            "desc": "Fundações: Sistema de eventos, sistema de registro de conteúdos, início de ResMaid (módulo responsável por obter e tratar assets e data) e mundo base (com geração procedural e renderização por chunks).",
+            "submit": false
         },
         "combate": {
-            "description": "Combate: Sistema de atributos para entidades (para o Jogador, com UI), inimigo Zumbi e Jogador que se move e sofre dano (com empurrão)(o Jogador especificamente, armazena dano para futura regeneração).",
-            "status": false
+            "desc": "Combate: Sistema de atributos para entidades (para o Jogador, com UI), inimigo Zumbi e Jogador que se move e sofre dano (com empurrão)(o Jogador especificamente, armazena dano para futura regeneração).",
+            "submit": false
         },
         "inventario": {
-            "description": "Inventário: Classes de Item e ItemStack, sistema de ItemComponents, inventário das entidades (para Jogadpr, com UI), entidade de item dropado no mundo, coleta e uso de item pelo jogador.",
-            "status": false
+            "desc": "Inventário: Classes de Item e ItemStack, sistema de ItemComponents, inventário das entidades (para Jogadpr, com UI), entidade de item dropado no mundo, coleta e uso de item pelo jogador.",
+            "submit": false
         },
         "sobrevivencia": {
-            "description": "Sobrevivência: Sistema de fome (barra de saciedade, itens comestíveis e desconto da regeneração futura) e sistema de ressurreição do jogador.",
-            "status": false
+            "desc": "Sobrevivência: Sistema de fome (barra de saciedade, itens comestíveis e desconto da regeneração futura) e sistema de ressurreição do jogador.",
+            "submit": false
         }
     },
     "alpha": {
         "estruturas": {
-            "description": "Estruturas: Sistema de loot table, sistema de receitas, ItemComponent que define ferramenta, estruturas base, natural e de construção.",
-            "status": false
+            "desc": "Estruturas: Sistema de loot table, sistema de receitas, ItemComponent que define ferramenta, estruturas base, natural e de construção.",
+            "submit": false
         },
         "descanso": {
-            "description": "Descanso: Sistema de tempo (passagem de tick global e a HUD do Jogador escurece de acordo), estrutura Cama (dormir nela passa a noite) e regeneração passiva de vida ao acordar.",
-            "status": false
+            "desc": "Descanso: Sistema de tempo (passagem de tick global e a HUD do Jogador escurece de acordo), estrutura Cama (dormir nela passa a noite) e regeneração passiva de vida ao acordar.",
+            "submit": false
         },
         "fabricacao": {
-            "description": "Fabricação: Estruturas que abrem UI, buscam receita e criam itens. Inventário de dados e estrutura que analisa o tempo atual para gerar dado.",
-            "status": false
+            "desc": "Fabricação: Estruturas que abrem UI, buscam receita e criam itens. Inventário de dados e estrutura que analisa o tempo atual para gerar dado.",
+            "submit": false
         },
         "combate2": {
-            "description": "Combate 2: Movimento de rolagem do Jogador, sistema de efeitos para entidades, sistema de encantamentos, tipos de slot para relíquias (colar, mãos, cinto, etc.), ItemComponent que define munição, tipo de slot para definição, entidade base para projéteis e projétil Flecha.",
-            "status": false
+            "desc": "Combate 2: Movimento de rolagem do Jogador, sistema de efeitos para entidades, sistema de encantamentos, tipos de slot para relíquias (colar, mãos, cinto, etc.), ItemComponent que define munição, tipo de slot para definição, entidade base para projéteis e projétil Flecha.",
+            "submit": false
         },
         "natureza": {
-            "description": "Natureza: Primeiro animal Galinha, sistema de reprodução (estrutura Estábulo e item Laço que movimenta os animais e coloca no Estábulo), sitema de plantação (ItemComponent para adubos e outro para sementes e estrutura Terra de Plantio).",
-            "status": false
+            "desc": "Natureza: Primeiro animal Galinha, sistema de reprodução (estrutura Estábulo e item Laço que movimenta os animais e coloca no Estábulo), sitema de plantação (ItemComponent para adubos e outro para sementes e estrutura Terra de Plantio).",
+            "submit": false
         },
         "historia": {
-            "description": "História: Primeiro chefe e sistema de gatilhos (servirá para conquistas, coleção de itens, eventos mundiais, desbloqueio de receitas. Observa derrota de chefes, coletar item, visitar bioma.",
-            "status": false
+            "desc": "História: Primeiro chefe e sistema de gatilhos (servirá para conquistas, coleção de itens, eventos mundiais, desbloqueio de receitas. Observa derrota de chefes, coletar item, visitar bioma.",
+            "submit": false
         }
     },
     "beta": {
         "cliente": {
-            "description": "Cliente: Iniciar o jogo a partir do cliente (com animação de entrada) e sistema de skins.",
-            "status": false
+            "desc": "Cliente: Iniciar o jogo a partir do cliente (com animação de entrada) e sistema de skins.",
+            "submit": false
         },
         "mundo": {
-            "description": "Mundo: Salvar e retomar mundo, configurações de mnundo, sistema de clima (modifica a HUD do Jogador).",
-            "status": false
+            "desc": "Mundo: Salvar e retomar mundo, configurações de mnundo, sistema de clima (modifica a HUD do Jogador).",
+            "submit": false
         },
         "progressao": {
-            "description": "Progreção: Sistema de nível de sobrevivente, sistema de coleção de itens, sistema de conquistas.",
-            "status": false
+            "desc": "Progreção: Sistema de nível de sobrevivente, sistema de coleção de itens, sistema de conquistas.",
+            "submit": false
         }
     },
     "ato1": { },
     "horizontes": {
         "campo_flores": {
-            "description": "Bioma: Campo de Flores.",
-            "status": false
+            "desc": "Bioma: Campo de Flores.",
+            "submit": false
         },
         "campo_lavanda": {
-            "description": "Bioma: Campo de Lavanda.",
-            "status": false
+            "desc": "Bioma: Campo de Lavanda.",
+            "submit": false
         },
         "deserto": {
-            "description": "Bioma: Deserto.",
-            "status": false
+            "desc": "Bioma: Deserto.",
+            "submit": false
         },
         "oasis": {
-            "description": "Bioma: Oásis.",
-            "status": false
+            "desc": "Bioma: Oásis.",
+            "submit": false
         },
         "fulguritos": {
-            "description": "Bioma: Deserto de Fulguritos.",
-            "status": false
+            "desc": "Bioma: Deserto de Fulguritos.",
+            "submit": false
         },
         "floresta": {
-            "description": "Bioma: Floresta Escura.",
-            "status": false
+            "desc": "Bioma: Floresta Escura.",
+            "submit": false
         },
         "manguezal": {
-            "description": "Bioma: Manguezal da Lua.",
-            "status": false
+            "desc": "Bioma: Manguezal da Lua.",
+            "submit": false
         },
         "campo_batalha": {
-            "description": "Bioma: Campo de Batalha Abandonado.",
-            "status": false
+            "desc": "Bioma: Campo de Batalha Abandonado.",
+            "submit": false
         },
         "jardim": {
-            "description": "Bioma: Jardim Subterrâneo.",
-            "status": false
+            "desc": "Bioma: Jardim Subterrâneo.",
+            "submit": false
         },
         "pocos": {
-            "description": "Bioma: Poços Tóxicos.",
-            "status": false
+            "desc": "Bioma: Poços Tóxicos.",
+            "submit": false
         },
         "animais": {
-            "description": "Para todos os biomas, animas, incluindo animais estranhos.",
-            "status": false
+            "desc": "Para todos os biomas, animas, incluindo animais estranhos.",
+            "submit": false
         },
         "eruptite": {
-            "description": "Eruptite: Novo material e armadura.",
-            "status": false
+            "desc": "Eruptite: Novo material e armadura.",
+            "submit": false
         }
     },
     "combate": {
         "material": {
-            "description": "Materiais: Chumbo e Carnigo.",
-            "status": false
+            "desc": "Materiais: Chumbo e Carnigo.",
+            "submit": false
         },
         "municoes": {
-            "description": "Munições: Bala de Canhão e Bala de Estilhaços.",
-            "status": false
+            "desc": "Munições: Bala de Canhão e Bala de Estilhaços.",
+            "submit": false
         },
         "armas": {
-            "description": "Armas: Bumerangue, Morteiro e Chanhão de Mão.",
-            "status": false
+            "desc": "Armas: Bumerangue, Morteiro e Chanhão de Mão.",
+            "submit": false
         },
         "defesas": {
-            "description": "Defesas: Escudo, Arco-escudo e Escudo com Mandículo.",
-            "status": false
+            "desc": "Defesas: Escudo, Arco-escudo e Escudo com Mandículo.",
+            "submit": false
         }
     },
     "magia": {
         "mana": {
-            "description": "Mana: Sistema para regeeração e consumo de mana.",
-            "status": false
+            "desc": "Mana: Sistema para regeeração e consumo de mana.",
+            "submit": false
         },
         "itens2": {
-            "description": "Itens: Adição de 7 cristais e outros elementos para magia.",
-            "status": false
+            "desc": "Itens: Adição de 7 cristais e outros elementos para magia.",
+            "submit": false
         },
         "armas2": {
-            "description": "Armas mágicas: 7 cajados mágicos, Espada de Asnog, Canhão de Estrelas Cadentes e Pistola Condensadora de Mana.",
-            "status": false
+            "desc": "Armas mágicas: 7 cajados mágicos, Espada de Asnog, Canhão de Estrelas Cadentes e Pistola Condensadora de Mana.",
+            "submit": false
         },
         "natureza2": {
-            "description": "Natureza: Adição de animais mágicos, como Asnog e Sapo Empoçado, e plantas, como Manjeiricão e Papoula.",
-            "status": false
+            "desc": "Natureza: Adição de animais mágicos, como Asnog e Sapo Empoçado, e plantas, como Manjeiricão e Papoula.",
+            "submit": false
         }
     },
     "cozinha": {
         "comidas": {
-            "description": "Comidas: 8 novos pratos, além de ingredientes e animais.",
-            "status": false
+            "desc": "Comidas: 8 novos pratos, além de ingredientes e animais.",
+            "submit": false
         }
     },
     "festa": {
         "pets": {
-            "description": "Pets: Adição de animais de estimação mágicos.",
-            "status": false
+            "desc": "Pets: Adição de animais de estimação mágicos.",
+            "submit": false
         },
         "decor": {
-            "description": "Decorações: Adição de 2 novas estruturas customizáveis por skin.",
-            "status": false
+            "desc": "Decorações: Adição de 2 novas estruturas customizáveis por skin.",
+            "submit": false
         },
         "passe": {
-            "description": "Passe estelar: Adição de passe que concede muitas recompensas.",
-            "status": false
+            "desc": "Passe estelar: Adição de passe que concede muitas recompensas.",
+            "submit": false
         }
     },
     "ato2": {
         "planejando": {
-            "description": "Ainda em planejamento...",
-            "status": false
+            "desc": "Ainda em planejamento...",
+            "submit": false
         }
     }
 }
