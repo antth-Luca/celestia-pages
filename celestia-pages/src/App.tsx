@@ -163,7 +163,7 @@ export default function App() {
                 {/* Page Content */}
                 {
                     currentPage === "sobre" ? <Sobre /> :
-                    currentPage === "versoes" ? <Versoes /> :
+                    currentPage === "versoes" ? <Versoes versions={versions} features={features} /> :
                     <Inicio versions={versions} />
                 }
             </main>

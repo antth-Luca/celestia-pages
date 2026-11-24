@@ -13,6 +13,8 @@ export const Inicio: React.FC<InicioProps> = ({ versions }) => {
         document.title = `Início${CONFIG.APP_NAME}`
     }, [])
 
+    const latestVersion = Object.values(versions)[0]
+
     return (<>
         {/* About Section */}
         <section className="relative pb-20 px-6 max-w-6xl mx-auto">
@@ -27,31 +29,29 @@ export const Inicio: React.FC<InicioProps> = ({ versions }) => {
             </div>
         </section>
 
-        {/* Versions Calendar Section */}
+        {/* Focus version */}
         <section id="versoes" className="relative pb-20 px-6 max-w-6xl mx-auto">
-            <h4 className="text-xl font-bold text-brand-500 mb-4">Muito conteúdo planejado</h4>
+            <h4 className="text-xl font-bold text-brand-500 mb-4">Versão em foco</h4>
             <div className="relative border-l-2 border-brand-800/40 ml-4 md:ml-6 flex flex-col gap-8">
 
-                {/* Itens via JSON */}
+                {/* Latest version */}
                 {
-                    Object.values(versions).map((i) => (
-                        <div key={i.name} className="relative pl-8 md:pl-10">
-                            <div className="absolute -left-[17px] top-1 bg-brand-600 text-white text-xs font-bold w-8 h-8 rounded-full flex items-center justify-center border-4 border-space-bg shadow-lg">
-                                {i.name}
-                            </div>
-                    
-                            {/* Card de Informações */}
-                            <div className="glass-card p-6 flex flex-col gap-1">
-                                <span className="text-xs font-semibold text-brand-400 uppercase tracking-wider">
-                                    {getStatusLabel(i.status)}
-                                </span>
-                                <h5 className="text-lg font-bold text-space-tx">{i.title}</h5>
-                                <span className="text-sm text-brand-300 font-medium">
-                                    {i.period ? i.period : "?? - ??"}
-                                </span>
-                            </div>
+                    <div key={latestVersion.name} className="relative pl-8 md:pl-10">
+                        <div className="absolute -left-[17px] top-1 bg-brand-600 text-white text-xs font-bold w-8 h-8 rounded-full flex items-center justify-center">
+                            {latestVersion.name}
                         </div>
-                    ))
+                
+                        {/* Card de Informações */}
+                        <div className="glass-card p-6 flex flex-col gap-1">
+                            <span className="text-xs font-semibold text-brand-400 uppercase tracking-wider">
+                                {getStatusLabel(latestVersion.status)}
+                            </span>
+                            <h5 className="text-lg font-bold text-space-tx">{latestVersion.title}</h5>
+                            <span className="text-sm text-brand-300 font-medium">
+                                {latestVersion.period ? latestVersion.period : "?? - ??"}
+                            </span>
+                        </div>
+                    </div>
                 }
 
             </div>
