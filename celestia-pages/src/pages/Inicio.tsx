@@ -2,10 +2,10 @@ import { useEffect } from "react"
 import { CONFIG } from "../config"
 import { ArrowRight } from "lucide-react"
 import { getStatusLabel } from "../data/VersionData"
-import type VersionData from "../data/VersionData"
+import type { VersionsData } from "../data/VersionData"
 
 interface InicioProps {
-    versions: VersionData[];
+    versions: VersionsData;
 }
 
 export const Inicio: React.FC<InicioProps> = ({ versions }) => {
@@ -13,7 +13,7 @@ export const Inicio: React.FC<InicioProps> = ({ versions }) => {
         document.title = `Início${CONFIG.APP_NAME}`
     }, [])
 
-    const latestVersion = Object.values(versions)[0]
+    const latestVersion = Object.values(versions).find(v => v.status === 2)
 
     return (<>
         {/* About Section */}
@@ -40,8 +40,7 @@ export const Inicio: React.FC<InicioProps> = ({ versions }) => {
                         <div className="absolute -left-[17px] top-1 bg-brand-600 text-white text-xs font-bold w-8 h-8 rounded-full flex items-center justify-center">
                             {latestVersion.name}
                         </div>
-                
-                        {/* Card de Informações */}
+
                         <div className="glass-card p-6 flex flex-col gap-1">
                             <span className="text-xs font-semibold text-brand-400 uppercase tracking-wider">
                                 {getStatusLabel(latestVersion.status)}

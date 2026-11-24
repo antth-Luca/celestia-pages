@@ -5,7 +5,7 @@ export default interface VersionData {
     period?: string
 }
 
-export function getStatusLabel(status: 0 | 1 | 2 | 3 | 4): string {
+export function getStatusLabel(status: 0 | 1 | 2 | 3): string {
     switch (status) {
         case 0:
             return "Planejando... 📅";
@@ -19,3 +19,5 @@ export function getStatusLabel(status: 0 | 1 | 2 | 3 | 4): string {
             return "Desconhecido ❓";
     }
 }
+
+export type VersionsData = Record<string, VersionData>

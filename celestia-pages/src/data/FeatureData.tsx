@@ -3,3 +3,5 @@ export default interface FeatureData {
     desc: string
     submit: boolean
 }
+
+export type FeaturesData = Record<string, Record<string, FeatureData>>

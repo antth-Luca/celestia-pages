@@ -5,14 +5,14 @@ import { TopNavBar } from "./components/TopNavBar";
 import { Inicio } from "./pages/Inicio";
 import Sobre from "./pages/Sobre";
 import { Versoes } from "./pages/Versoes";
-import type VersionData from "./data/VersionData";
-import type FeatureData from "./data/FeatureData";
+import type { VersionsData } from "./data/VersionData";
+import type { FeaturesData } from "./data/FeatureData";
 
 type Page = "inicio" | "sobre" | "versoes";
 
 export default function App() {
-    const [versions, setVersions] = useState<VersionData[]>([]);
-    const [features, setFeatures] = useState<FeatureData[]>([]);
+    const [versions, setVersions] = useState<VersionsData>({});
+    const [features, setFeatures] = useState<FeaturesData>({});
 
     const [loading, setLoading] = useState(true);
     const [error, setError] = useState<string | null>(null);
@@ -61,8 +61,8 @@ export default function App() {
                 }
 
                 const [versionsData, featuresData] = await Promise.all([
-                    versionsResponse.json() as Promise<VersionData[]>,
-                    featuresResponse.json() as Promise<FeatureData[]>
+                    versionsResponse.json() as Promise<VersionsData>,
+                    featuresResponse.json() as Promise<FeaturesData>
                 ]);
 
                 setVersions(versionsData);
