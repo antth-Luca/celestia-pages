@@ -15,6 +15,20 @@ export const Inicio: React.FC<InicioProps> = ({ versions }) => {
 
     const latestVersion = Object.values(versions).find(v => v.status === 2)
 
+    if (!latestVersion) {
+        return (
+            <section className="relative pb-20 px-6 max-w-6xl mx-auto">
+                <h4 className="text-xl font-bold text-brand-500 mb-4">
+                    Versão em foco
+                </h4>
+
+                <p className="text-space-tx/70">
+                    Nenhuma versão em desenvolvimento no momento.
+                </p>
+            </section>
+        );
+    }
+
     return (<>
         {/* About Section */}
         <section className="relative pb-20 px-6 max-w-6xl mx-auto">
