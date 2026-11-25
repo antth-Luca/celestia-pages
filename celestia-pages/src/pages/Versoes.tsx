@@ -34,9 +34,8 @@ export const Versoes: React.FC<VersoesProps> = ({ versions, features }) => {
             <div className="relative border-l-2 border-brand-800/40 ml-4 md:ml-6 flex flex-col gap-8">
 
                 {/* Selector carousel */}
-                <div className="flex gap-4 overflow-x-auto pb-5 px-1 snap-x snap-mandatory scrollbar-thin scrollbar-thumb-brand-500/40 scrollbar-track-transparent">
-                    {
-                        Object.entries(versions).map(([k, vs]) => (
+                <div className="flex gap-4 overflow-x-auto py-2 px-1 snap-x snap-mandatory scrollbar-thin scrollbar-thumb-brand-500/40 scrollbar-track-transparent">
+                    {Object.entries(versions).map(([k, vs]) => (
                             <button
                                 key={k}
                                 onClick={() => setSelectedKey(k)}
@@ -46,25 +45,30 @@ export const Versoes: React.FC<VersoesProps> = ({ versions, features }) => {
                                     text-left
                                     transition-all duration-300
                                     ${selectedVs.name === vs.name
-                                        ? "border-brand-400 ring-1 ring-brand-400/40 opacity-100"
-                                        : "opacity-70 hover:opacity-100"
+                                        && "border-brand-400 ring-1 ring-brand-400/40"
                                     }
                                 `}
                             >
-                            <span className="text-brand-400 text-sm">
-                                {vs.name}
-                            </span>
+                                <span className={`
+                                    ${selectedVs.name === vs.name
+                                        ? "opacity-100"
+                                        : "opacity-70 hover:opacity-100"
+                                    }
+                                `}>
+                                    <span className="text-brand-400 text-sm">
+                                        {vs.name}
+                                    </span>
 
-                            <h3 className="text-lg font-bold text-space-tx mt-1">
-                                {vs.title}
-                            </h3>
+                                    <h3 className="text-lg font-bold text-space-tx mt-1">
+                                        {vs.title}
+                                    </h3>
 
-                            <span className="text-xs text-space-tx/50">
-                                {getStatusLabel(vs.status)}
-                            </span>
-                        </button>
-                        ))
-                    }
+                                    <span className="text-xs text-space-tx/50">
+                                        {getStatusLabel(vs.status)}
+                                    </span>
+                                </span>
+                            </button>
+                    ))}
                 </div>
 
                 {/* JSON content: Features */}
