@@ -1,6 +1,6 @@
 import { useEffect } from "react"
 import { CONFIG } from "../config"
-import { ArrowRight, BookOpen, Compass, Hammer, Shield } from "lucide-react"
+import { ArrowRight, Blocks, BookOpen, CodeXml, Compass, Hammer, Palette, Shield, Sparkles } from "lucide-react"
 import type { VersionsData } from "../data/VersionData"
 
 interface InicioProps {
@@ -25,7 +25,7 @@ export const Inicio: React.FC<InicioProps> = ({ versions }) => {
             t: "Criação",
             d: "Reúna recursos, experimente combinações e crie suas próprias ferramentas e aparatos.",
             i: Hammer,
-            c: "text-amber-300"
+            c: "text-emerald-300"
         },
         {
             t: "Sobrevivência",
@@ -37,7 +37,34 @@ export const Inicio: React.FC<InicioProps> = ({ versions }) => {
             t: "Narrativa",
             d: "Das mecânicas aos inimigos, dos detalhes do mundo aos próprios itens: tudo pode esconder pistas sobre a história.",
             i: BookOpen,
-            c: "text-emerald-300"
+            c: "text-amber-300"
+        }
+    ]
+
+    const behind = [
+        {
+            t: "Tecnologia",
+            d: "Construído com Godot e C#, com uma arquitetura pensada para crescer junto com o projeto.",
+            i: CodeXml,
+            c: "text-lime-300"
+        },
+        {
+            t: "Visual",
+            d: "Pixel art feita à mão, buscando uma personalidade e identidade únicas, mas sem abrir mão da identidade do próprio jogador.",
+            i: Palette,
+            c: "text-pink-300"
+        },
+        {
+            t: "Comunidade",
+            d: "Uma estrutura planejada para permitir o multijogador e que a comunidade crie e compartilhe seu próprio conteúdo.",
+            i: Blocks,
+            c: "text-violet-400"
+        },
+        {
+            t: "Além das fronteiras",
+            d: "ARGs, contos e interações que levam elementos narrativos a ultrapassar os limites do próprio jogo.",
+            i: Sparkles,
+            c: "text-green-300"
         }
     ]
 
@@ -111,10 +138,8 @@ export const Inicio: React.FC<InicioProps> = ({ versions }) => {
                         className={`
                             glass-card
                             group relative overflow-hidden
-                            rounded-xl border border-white/10
-                            bg-gradient-to-br
-                            p-5 transition-all duration-300
-                            hover:-translate-y-1 hover:border-white/20
+                            rounded-xl border border-white/10 p-5
+                            hover:border-white/20
                         `}
                     >
                         <div className="flex items-center justify-center py-5">
@@ -129,12 +154,56 @@ export const Inicio: React.FC<InicioProps> = ({ versions }) => {
                         </div>
 
                         <div className="text-center">
-                            <h5 className="text-center font-bold text-space-tx text-base">
+                            <h5 className="font-bold text-space-tx text-base">
                                 {p.t}
                             </h5>
 
                             <p className="text-sm text-space-tx/70 mt-2 leading-relaxed">
                                 {p.d}
+                            </p>
+                        </div>
+                    </article>)
+                })}
+
+            </div>
+        </section>
+
+        {/* Behind */}
+        <section id="versoes" className="relative pb-20 px-6 max-w-6xl mx-auto">
+            <h4 className="text-xl font-bold text-brand-500 mb-4">Nos bastidores</h4>
+
+            <div className="grid grid-cols-1 lg:grid-cols-2 gap-4">
+
+                {behind.map((b) => {
+                    const BehindIcon = b.i
+
+                    return(<article
+                        key={b.t}
+                        className={`
+                            glass-card
+                            group relative overflow-hidden
+                            rounded-xl border border-white/10 p-5
+                            hover:border-white/20
+                        `}
+                    >
+                        <div className="flex items-center pb-5">
+                            <BehindIcon
+                                size={40}
+                                className={`
+                                    ${b.c}
+                                    transition-transform duration-300
+                                    group-hover:scale-110
+                                `}
+                            />
+                        </div>
+
+                        <div>
+                            <h5 className="text-right font-bold text-space-tx text-base">
+                                {b.t}
+                            </h5>
+
+                            <p className="text-justify text-sm text-space-tx/70 mt-2 leading-relaxed">
+                                {b.d}
                             </p>
                         </div>
                     </article>)
