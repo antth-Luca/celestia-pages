@@ -164,7 +164,7 @@ export default function App() {
                 {
                     currentPage === "sobre" ? <Sobre /> :
                     currentPage === "versoes" ? <Versoes versions={versions} features={features} /> :
-                    <Inicio versions={versions} />
+                    <Inicio versions={versions} links={links} />
                 }
             </main>
 

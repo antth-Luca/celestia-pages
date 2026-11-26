@@ -1,13 +1,15 @@
 import { useEffect } from "react"
 import { CONFIG } from "../config"
-import { ArrowRight, Blocks, BookOpen, CodeXml, Compass, Hammer, Palette, Shield, Sparkles } from "lucide-react"
+import { ArrowRight, ArrowUpRight, Blocks, BookOpen, CodeXml, Compass, Hammer, HeartHandshake, Palette, ShelvingUnit, Shield, Sparkles, SquareStack, Users } from "lucide-react"
 import type { VersionsData } from "../data/VersionData"
+import type LinkData from "../data/LinkData"
 
 interface InicioProps {
-    versions: VersionsData;
+    versions: VersionsData
+    links: LinkData[]
 }
 
-export const Inicio: React.FC<InicioProps> = ({ versions }) => {
+export const Inicio: React.FC<InicioProps> = ({ versions, links }) => {
     useEffect(() => {
         document.title = `Início${CONFIG.APP_NAME}`
     }, [])
@@ -72,6 +74,7 @@ export const Inicio: React.FC<InicioProps> = ({ versions }) => {
         {/* About Section */}
         <section className="relative pb-20 px-6 max-w-6xl mx-auto">
             <h4 className="text-xl font-bold text-brand-500 mb-4">Premissa e visão geral</h4>
+
             <div className="glass-card p-6 md:p-8">
                 <p className="italic text-justify text-space-tx/90 leading-relaxed">
                     "Você abre os olhos após escutar um estrondo e tudo o que vê é mundo desconhecido, tudo o que lembra é de um sonho confuso. Agora, você tem três chances para conquistar o mundo e descobrir quem é você e o que aconteceu."
@@ -80,6 +83,7 @@ export const Inicio: React.FC<InicioProps> = ({ versions }) => {
                     Essa é a premissa de <span className="text-gradient font-semibold">Celestia</span>, um jogo sandbox de sobrevivência que conta uma história celestial enquanto você explora, coleta, luta e constrói num estilo de pixel-art vislumbrante.
                 </p>
             </div>
+
         </section>
 
         {/* Focus version */}
@@ -138,8 +142,6 @@ export const Inicio: React.FC<InicioProps> = ({ versions }) => {
                         className={`
                             glass-card
                             group relative overflow-hidden
-                            rounded-xl border border-white/10 p-5
-                            hover:border-white/20
                         `}
                     >
                         <div className="flex items-center justify-center py-5">
@@ -182,8 +184,6 @@ export const Inicio: React.FC<InicioProps> = ({ versions }) => {
                         className={`
                             glass-card
                             group relative overflow-hidden
-                            rounded-xl border border-white/10 p-5
-                            hover:border-white/20
                         `}
                     >
                         <div className="flex items-center pb-5">
@@ -214,32 +214,67 @@ export const Inicio: React.FC<InicioProps> = ({ versions }) => {
 
         {/* More Section */}
         <section id="projetos" className="relative pb-20 px-6 max-w-6xl mx-auto">
-            <h4 className="text-xl font-bold text-brand-500 mb-4">Explore mais</h4>
-            <div className="glass-card p-6 md:p-8 mb-16">
+            <h4 className="text-xl font-bold text-brand-500 mb-4">Continue explorando</h4>
 
-                <h3 className="font-bold text-space-tx mb-4">
-                    Quer mais sobre a parte técnica e versões de Celestia?
-                </h3>
-                <p className="text-space-tx/70 max-w-xl">
-                    Descubra as versões planejadas, conteúdos, o que e onde esperar.
-                </p>
-                <div className="w-full md:w-auto flex justify-center gap-2 pt-4">
-                    <button
-                        className="group flex items-center gap-2 bg-brand-500 hover:bg-brand-600 text-white font-semibold px-6 py-4 rounded-xl transition-all duration-300 shadow-lg shadow-brand-500/20 hover:shadow-brand-600/30 w-full sm:w-auto justify-center"
-                    >
-                        Conhecer mais
-                        <ArrowRight size={18} className="group-hover:translate-x-1 transition-transform" />
-                    </button>
+            <div className="grid grid-cols-2 lg:grid-cols-4 gap-4">
+                <a
+                    href="https://discord.gg/TJNjXR7x55"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="glass-card group flex flex-col items-center text-center gap-3"
+                >
+                    <Users size={32} />
+                    <div>
+                        <h5 className="font-bold">Discord</h5>
+                        <p className="text-xs text-space-tx/60 mt-1">
+                            Participe da comunidade
+                        </p>
+                    </div>
+                    <ArrowUpRight size={18} className="opacity-50 group-hover:opacity-100" />
+                </a>
 
-                    <button
-                        className="group flex items-center gap-2 bg-brand-500 hover:bg-brand-600 text-white font-semibold px-6 py-4 rounded-xl transition-all duration-300 shadow-lg shadow-brand-500/20 hover:shadow-brand-600/30 w-full sm:w-auto justify-center"
-                    >
-                        Conhecer versões
-                        <ArrowRight size={18} className="group-hover:translate-x-1 transition-transform" />
-                    </button>
+                <button
+                    onClick={links[2].onClick}
+                    className="glass-card group flex flex-col items-center text-center gap-3 cursor-pointer"
+                >
+                    <SquareStack size={32} />
+                    <div>
+                        <h5 className="font-bold">Versões</h5>
+                        <p className="text-xs text-space-tx/60 mt-1">
+                            Acompanhe o desenvolvimento
+                        </p>
+                    </div>
+                    <ArrowRight size={18} className="opacity-50 group-hover:opacity-100" />
+                </button>
+
+                <button
+                    onClick={links[1].onClick}
+                    className="glass-card group flex flex-col items-center text-center gap-3 cursor-pointer"
+                >
+                    <ShelvingUnit size={32} />
+                    <div>
+                        <h5 className="font-bold">Descobrir</h5>
+                        <p className="text-xs text-space-tx/60 mt-1">
+                            Conheça mais sobre o jogo
+                        </p>
+                    </div>
+                    <ArrowRight size={18} className="opacity-50 group-hover:opacity-100" />
+                </button>
+
+                <div
+                    className="glass-card group flex flex-col items-center text-center gap-3"
+                >
+                    <HeartHandshake size={32} />
+                    <div>
+                        <h5 className="font-bold">Apoie</h5>
+                        <p className="text-xs text-space-tx/60 mt-1">
+                            Ajude o projeto a crescer
+                        </p>
+                    </div>
+                    {/* <ArrowRight size={18} className="opacity-50 group-hover:opacity-100" /> */}
                 </div>
-
             </div>
+
         </section>
     </>)
 }

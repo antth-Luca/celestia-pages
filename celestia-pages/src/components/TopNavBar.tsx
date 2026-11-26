@@ -1,10 +1,6 @@
 import { Menu, X } from "lucide-react"
 import React from "react"
-
-interface LinkData {
-    onClick: () => void
-    label: string
-}
+import type LinkData from "../data/LinkData"
 
 interface TNBProps {
     homeURL: string
@@ -31,7 +27,7 @@ export const TopNavBar: React.FC<TNBProps> = ({ homeURL, logoSrc, title, links }
                 <div className="hidden md:flex items-center gap-8 px-2 md:px-3 text-sm font-medium text-slate-300">
                     {
                         links.map(({ onClick, label }) => (
-                            <a key={label.toLowerCase()} onClick={onClick} className="hover:text-brand-600 transition-colors">{label}</a>
+                            <a key={label.toLowerCase()} onClick={onClick} className="cursor-pointer hover:text-brand-600 transition-colors">{label}</a>
                         ))
                     }
                 </div>
