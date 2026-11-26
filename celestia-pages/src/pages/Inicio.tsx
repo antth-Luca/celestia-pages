@@ -1,7 +1,6 @@
 import { useEffect } from "react"
 import { CONFIG } from "../config"
-import { ArrowRight } from "lucide-react"
-import { getStatusLabel } from "../data/VersionData"
+import { ArrowRight, BookOpen, Compass, Hammer, Shield } from "lucide-react"
 import type { VersionsData } from "../data/VersionData"
 
 interface InicioProps {
@@ -15,19 +14,32 @@ export const Inicio: React.FC<InicioProps> = ({ versions }) => {
 
     const latestVersion = Object.values(versions).find(v => v.status === 2)
 
-    if (!latestVersion) {
-        return (
-            <section className="relative pb-20 px-6 max-w-6xl mx-auto">
-                <h4 className="text-xl font-bold text-brand-500 mb-4">
-                    Versão em foco
-                </h4>
-
-                <p className="text-space-tx/70">
-                    Nenhuma versão em desenvolvimento no momento.
-                </p>
-            </section>
-        );
-    }
+    const gameplayPillars = [
+        {
+            t: "Exploração",
+            d: "Descubra um mundo desconhecido, explore cada canto e desvende os segredos que ele guarda.",
+            i: Compass,
+            c: "text-sky-300"
+        },
+        {
+            t: "Criação",
+            d: "Reúna recursos, experimente combinações e crie suas próprias ferramentas e aparatos.",
+            i: Hammer,
+            c: "text-amber-300"
+        },
+        {
+            t: "Sobrevivência",
+            d: "Enfrente inimigos, derrote chefes e supere desafios. Descubra até onde você consegue chegar.",
+            i: Shield,
+            c: "text-rose-300"
+        },
+        {
+            t: "Narrativa",
+            d: "Das mecânicas aos inimigos, dos detalhes do mundo aos próprios itens: tudo pode esconder pistas sobre a história.",
+            i: BookOpen,
+            c: "text-emerald-300"
+        }
+    ]
 
     return (<>
         {/* About Section */}
@@ -45,27 +57,88 @@ export const Inicio: React.FC<InicioProps> = ({ versions }) => {
 
         {/* Focus version */}
         <section id="versoes" className="relative pb-20 px-6 max-w-6xl mx-auto">
-            <h4 className="text-xl font-bold text-brand-500 mb-4">Versão em foco</h4>
-            <div className="relative border-l-2 border-brand-800/40 ml-4 md:ml-6 flex flex-col gap-8">
+            <h4 className="text-xl font-bold text-brand-500 mb-4">Desenvolvimento</h4>
 
                 {/* Latest version */}
-                {
-                    <div key={latestVersion.name} className="relative pl-8 md:pl-10">
-                        <div className="absolute -left-[17px] top-1 bg-brand-600 text-white text-xs font-bold w-8 h-8 rounded-full flex items-center justify-center">
-                            {latestVersion.name}
-                        </div>
+                {latestVersion ? (
+                    <div className="glass-card p-6 md:p-8 flex flex-col gap-1">
+                        <p className="text-justify text-space-tx/90 leading-relaxed">
+                            Celestia ainda é um projeto <span className="text-gradient font-semibold">em desenvolvimento</span>, atualmente na seguinte etapa:
+                        </p>
 
-                        <div className="glass-card p-6 flex flex-col gap-1">
-                            <span className="text-xs font-semibold text-brand-400 uppercase tracking-wider">
-                                {getStatusLabel(latestVersion.status)}
-                            </span>
+                        <div className="mt-4">
                             <h5 className="text-lg font-bold text-space-tx">{latestVersion.title}</h5>
                             <span className="text-sm text-brand-300 font-medium">
                                 {latestVersion.period ? latestVersion.period : "?? - ??"}
                             </span>
                         </div>
+
+                        <p className="text-justify text-space-tx/90 leading-relaxed mt-4">
+                            Por enquanto, a totalidade de Celestia ainda existe principalmente nos meus planos, documentos e ideias. Olá, muito prazer! Eu sou Luca Anthony (antthLuca), criador de Celestia e seu primeiro grande entusiasta.
+                        </p>
+                        <p className="text-justify text-space-tx/90 leading-relaxed mt-4">
+                            Tenho muitas ideias registradas e planejadas para o projeto: ARGs, chefes, itens, decorações e muito mais. Entretanto, desenvolver jogos ainda é um território relativamente novo para mim. Celestia é um projeto independente, que construo aos poucos, conforme meu tempo disponível permite.
+                        </p>
+                        <p className="text-justify text-space-tx/90 leading-relaxed mt-4">
+                            Meu objetivo é transformar todas essas ideias em um mundo que outras pessoas também possam explorar e chamar de seu.
+                        </p>
                     </div>
-                }
+                ) : (
+                    <div className="relative pb-20 px-6 max-w-6xl mx-auto">
+                        <h4 className="text-xl font-bold text-brand-500 mb-4">
+                            Versão em foco
+                        </h4>
+
+                        <p className="text-space-tx/70">
+                            Nenhuma versão em desenvolvimento no momento.
+                        </p>
+                    </div>
+                )}
+
+        </section>
+
+        {/* Gameplay */}
+        <section id="versoes" className="relative pb-20 px-6 max-w-6xl mx-auto">
+            <h4 className="text-xl font-bold text-brand-500 mb-4">A jornada de Celestia</h4>
+
+            <div className="grid grid-cols-2 lg:grid-cols-4 gap-4">
+
+                {gameplayPillars.map((p) => {
+                    const PillarIcon = p.i
+
+                    return(<article
+                        key={p.t}
+                        className={`
+                            glass-card
+                            group relative overflow-hidden
+                            rounded-xl border border-white/10
+                            bg-gradient-to-br
+                            p-5 transition-all duration-300
+                            hover:-translate-y-1 hover:border-white/20
+                        `}
+                    >
+                        <div className="flex items-center justify-center py-5">
+                            <PillarIcon
+                                size={56}
+                                className={`
+                                    ${p.c}
+                                    transition-transform duration-300
+                                    group-hover:scale-110
+                                `}
+                            />
+                        </div>
+
+                        <div className="text-center">
+                            <h5 className="text-center font-bold text-space-tx text-base">
+                                {p.t}
+                            </h5>
+
+                            <p className="text-sm text-space-tx/70 mt-2 leading-relaxed">
+                                {p.d}
+                            </p>
+                        </div>
+                    </article>)
+                })}
 
             </div>
         </section>
